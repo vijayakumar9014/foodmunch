@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Food Munch – Eat Smart & Healthy</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@400;500;600&display=swap">
+<style>
+:root{--bg:#fff8ea;--bg2:#ffefd0;--card:#ffffff;--text:#2a2118;--mute:#6f6253;--gold:#b58f00;--gold2:#e6b800;--line:rgba(0,0,0,.1);--nav:rgba(255,248,234,.85);color-scheme:light;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#110e0a;--bg2:#1a1510;--card:#221b14;--text:#f6ecda;--mute:#b3a58f;--gold:#f2c500;--gold2:#ffdf4d;--line:rgba(255,255,255,.1);--nav:rgba(17,14,10,.8);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#110e0a;--bg2:#1a1510;--card:#221b14;--text:#f6ecda;--mute:#b3a58f;--gold:#f2c500;--gold2:#ffdf4d;--line:rgba(255,255,255,.1);--nav:rgba(17,14,10,.8);color-scheme:dark}
+html{height:100%;scroll-behavior:smooth;scroll-padding-top:calc(76px + env(safe-area-inset-top,0px))}
+*{box-sizing:border-box;margin:0}
+body{background:var(--bg);color:var(--text);font:400 16px/1.7 Poppins,system-ui,sans-serif;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--nav);backdrop-filter:blur(14px)}
+h1,h2,h3{font-family:'Playfair Display',Georgia,serif;line-height:1.15}
+.wrap{max-width:1140px;margin:auto;padding:0 22px}
+section{padding:96px 0}
+nav{position:fixed;top:env(safe-area-inset-top,0px);left:0;right:0;z-index:50;background:var(--nav);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{font:900 24px 'Playfair Display',serif;color:var(--text);text-decoration:none}.logo b{color:var(--gold)}
+.links{display:flex;gap:6px;align-items:center}
+.links a{color:var(--mute);text-decoration:none;font-size:14px;font-weight:500;padding:8px 14px;border-radius:99px;transition:.25s}
+.links a:hover,.links a.on{color:#1a1200;background:var(--gold2)}
+.tbtn,.burger{background:none;border:1px solid var(--line);color:var(--text);border-radius:99px;width:38px;height:38px;cursor:pointer;font-size:16px}
+.burger{display:none}
+@media(max-width:820px){.burger{display:block}.links{position:absolute;top:68px;left:0;right:0;background:var(--bg);flex-direction:column;padding:12px;display:none;border-bottom:1px solid var(--line)}.links.open{display:flex}}
+.hero{min-height:100vh;min-height:100svh;display:grid;place-items:center;text-align:center;position:relative;overflow:hidden;padding:120px 0 60px;background:radial-gradient(ellipse at 50% 0,var(--bg2),var(--bg))}
+.blob{position:absolute;border-radius:50%;filter:blur(70px);opacity:.45;animation:drift 14s ease-in-out infinite alternate}
+.b1{width:380px;height:380px;background:#ff7a2f;left:-90px;top:12%}.b2{width:320px;height:320px;background:var(--gold2);right:-60px;bottom:8%;animation-delay:-5s}.b3{width:240px;height:240px;background:#38b26a;left:48%;top:60%;animation-delay:-9s}
+@keyframes drift{to{transform:translate(60px,-50px) scale(1.2)}}
+.float{position:absolute;font-size:44px;animation:bob 6s ease-in-out infinite;filter:drop-shadow(0 12px 12px rgba(0,0,0,.3))}
+@keyframes bob{50%{transform:translateY(-26px) rotate(10deg)}}
+.hero .in{position:relative;z-index:2}
+.pill{display:inline-block;border:1px solid var(--gold);color:var(--gold);padding:4px 16px;border-radius:99px;font-size:13px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:22px}
+.hero h1{font-size:clamp(40px,8vw,92px);font-weight:900}
+.hero h1 span{background:linear-gradient(90deg,#ff7a2f,var(--gold2),#38b26a,#ff7a2f);background-size:300%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 6s linear infinite}
+@keyframes shine{to{background-position:300%}}
+.hero p{font-size:20px;color:var(--mute);margin:18px 0 34px}
+.btn{display:inline-block;padding:14px 32px;border-radius:99px;font:600 15px Poppins,sans-serif;cursor:pointer;border:2px solid var(--gold2);text-decoration:none;transition:.3s;margin:4px}
+.btn.fill{background:var(--gold2);color:#1a1200}.btn.fill:hover{transform:translateY(-3px);box-shadow:0 14px 30px -8px var(--gold2)}
+.btn.out{background:none;color:var(--text)}.btn.out:hover{background:var(--gold2);color:#1a1200}
+.marq{overflow:hidden;background:var(--gold2);color:#1a1200;padding:14px 0;font:700 20px 'Playfair Display',serif;white-space:nowrap}
+.marq div{display:inline-block;animation:mq 30s linear infinite}@keyframes mq{to{transform:translateX(-50%)}}
+.sec-h{text-align:center;margin-bottom:54px}.sec-h h2{font-size:clamp(32px,5vw,52px)}.sec-h p{color:var(--mute);max-width:560px;margin:12px auto 0}
+.sec-h h2::after{content:"";display:block;width:70px;height:4px;border-radius:4px;background:var(--gold2);margin:16px auto 0}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:26px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:32px;transition:transform .3s,box-shadow .3s,border-color .3s}
+.card:hover{transform:translateY(-10px);border-color:var(--gold2);box-shadow:0 26px 50px -24px rgba(0,0,0,.5)}
+.ico{width:76px;height:76px;border-radius:22px;display:grid;place-items:center;font-size:38px;background:linear-gradient(135deg,var(--gold2),#ff7a2f);margin-bottom:20px}
+.card h3{font-size:24px;margin-bottom:8px}.card p{color:var(--mute);font-size:15px}
+.off{color:var(--gold);font-weight:700}
+.alt{background:var(--bg2)}
+.tabs{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:34px}
+.tabs button{background:none;border:1px solid var(--line);color:var(--text);padding:8px 20px;border-radius:99px;cursor:pointer;font:500 14px Poppins,sans-serif;transition:.25s}
+.tabs button.on,.tabs button:hover{background:var(--gold2);color:#1a1200;border-color:var(--gold2)}
+.menu{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:22px}
+.item{text-align:center;padding:28px 20px;perspective:600px}
+.item .em{font-size:76px;display:block;transition:transform .4s;filter:drop-shadow(0 14px 10px rgba(0,0,0,.3))}
+.item:hover .em{transform:scale(1.25) rotate(-8deg)}
+.item h3{font-size:21px;margin:14px 0 4px}.item small{color:var(--mute)}
+.item a{display:inline-block;margin-top:12px;color:var(--gold);font-weight:600;text-decoration:none}.item a:hover{letter-spacing:.06em}
+.hide{display:none}
+.split{display:grid;grid-template-columns:1fr 1.2fr;gap:56px;align-items:center}
+@media(max-width:820px){.split{grid-template-columns:1fr}.rev{order:-1}}
+.plate{width:min(340px,80vw);aspect-ratio:1;margin:auto;border-radius:50%;background:radial-gradient(circle,#fff 0 60%,#e9e2d4 61% 66%,#fff 67%);display:grid;place-items:center;font-size:110px;box-shadow:0 40px 60px -20px rgba(0,0,0,.5);animation:spin 28s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.split h2{font-size:clamp(30px,4.5vw,46px);margin-bottom:16px}.split p{color:var(--mute);margin-bottom:26px}
+.stats{display:flex;gap:30px;margin:0 0 26px}.stats b{display:block;font:900 38px 'Playfair Display',serif;color:var(--gold)}.stats span{font-size:13px;color:var(--mute)}
+.track{position:relative;display:flex;justify-content:space-between;margin:28px 0 8px}
+.track::before{content:"";position:absolute;top:22px;left:22px;right:22px;height:4px;background:var(--line)}
+.track i{position:absolute;top:22px;left:22px;height:4px;background:var(--gold2);width:0;animation:fill 5s ease-in-out infinite alternate}
+@keyframes fill{to{width:calc(100% - 44px)}}
+.track span{width:48px;height:48px;border-radius:50%;background:var(--card);border:2px solid var(--gold2);display:grid;place-items:center;font-size:22px;position:relative;z-index:1}
+.pay{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}.pay span{border:1px solid var(--line);background:var(--card);padding:6px 16px;border-radius:10px;font-weight:600;font-size:14px}
+.gift{text-align:center;background:linear-gradient(135deg,#ff7a2f,#e6b800);color:#1a1200;border-radius:34px;padding:64px 24px;position:relative;overflow:hidden}
+.gift h2{font-size:clamp(28px,4.5vw,46px)}.gift p{margin:10px 0 26px;font-weight:500}.gift .btn{background:#1a1200;color:#ffdf4d;border-color:#1a1200}
+dialog{border:none;border-radius:26px;padding:0;background:var(--card);color:var(--text);max-width:420px;width:90%;margin:auto}
+dialog::backdrop{background:rgba(0,0,0,.65);backdrop-filter:blur(4px)}
+.v{padding:36px;text-align:center}
+.coupon{border:3px dashed var(--gold2);border-radius:20px;padding:26px;margin:20px 0}
+.coupon b{font:900 56px 'Playfair Display',serif;color:var(--gold);display:block;line-height:1}.coupon code{font-size:22px;letter-spacing:.25em;font-weight:700}
+.soc{display:flex;gap:18px;justify-content:center;flex-wrap:wrap}
+.soc a{width:68px;height:68px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line);background:var(--card);color:var(--text);text-decoration:none;font-weight:700;transition:.3s}
+.soc a:hover{background:var(--gold2);color:#1a1200;transform:translateY(-8px) rotate(8deg)}
+footer{text-align:center;padding:60px 0 44px;border-top:1px solid var(--line)}footer p{color:var(--mute)}footer a{color:var(--gold);font:600 22px 'Playfair Display',serif;text-decoration:none;display:block;margin:10px 0}
+.rv{opacity:0;transform:translateY(40px);transition:opacity .8s,transform .8s}.rv.show{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+<nav><div class="wrap">
+<a class="logo" href="#top">Food<b>Munch</b></a>
+<div class="links" id="links">
+<a href="#why">Why Choose Us?</a><a href="#menu">Explore Menu</a><a href="#delivery">Delivery & Payment</a><a href="#follow">Follow Us</a>
+<button class="tbtn" id="theme" aria-label="Toggle theme">◐</button></div>
+<button class="burger" id="burger" aria-label="Menu">☰</button>
+</div></nav>
+
+<header class="hero" id="top">
+<div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+<span class="float" style="left:9%;top:26%">🍕</span><span class="float" style="right:10%;top:24%;animation-delay:-2s">🥑</span><span class="float" style="left:16%;bottom:14%;animation-delay:-4s">🍜</span><span class="float" style="right:15%;bottom:16%;animation-delay:-1s">🍓</span>
+<div class="in wrap">
+<span class="pill">Fresh · Fast · Flavourful</span>
+<h1>Get Delicious Food <span>Anytime</span></h1>
+<p>Eat Smart & Healthy — chef‑crafted meals at your door.</p>
+<a class="btn fill" href="#menu">View Menu</a><a class="btn out" href="#delivery">Order Now</a>
+</div></header>
+
+<div class="marq"><div id="mq"></div></div>
+
+<section id="why"><div class="wrap">
+<div class="sec-h rv"><h2>Why Choose Us?</h2><p>We use both original recipes and classic versions of famous food items.</p></div>
+<div class="grid3">
+<div class="card rv"><div class="ico">🍽️</div><h3>Food Service</h3><p>Experience fine dining in the comfort of your home. Every order is carefully packed and arranged to be nothing less than perfect.</p></div>
+<div class="card rv"><div class="ico">🥬</div><h3>Fresh Food</h3><p>Fresh‑cut fruits and vegetables picked straight from our partner farms, so you always get them tree to plate.</p></div>
+<div class="card rv"><div class="ico">🎟️</div><h3>Best Offers</h3><p>Food coupons & offers up to <span class="off">50% OFF</span> and exclusive promo codes on all online food orders.</p></div>
+</div></div></section>
+
+<section class="alt" id="menu"><div class="wrap">
+<div class="sec-h rv"><h2>Explore Menu</h2><p>Pick a category and dive in.</p></div>
+<div class="tabs" id="tabs"><button class="on" data-f="all">All</button><button data-f="s">Starters</button><button data-f="m">Mains</button><button data-f="l">Light</button><button data-f="d">Sweet</button></div>
+<div class="menu" id="menuGrid"></div>
+</div></section>
+
+<section><div class="wrap split">
+<div class="rv"><div class="plate">🥗</div></div>
+<div class="rv"><h2>Fresh, Healthy, Organic, Delicious Fruits</h2>
+<p>Say no to harmful chemicals and go fully organic with our range of fresh fruits and veggies. Pamper your body and your senses with the true and unadulterated gifts from mother nature.</p>
+<div class="stats"><div><b data-n="120">0</b><span>Dishes</span></div><div><b data-n="25">0</b><span>Partner farms</span></div><div><b data-n="50">0</b><span>K+ happy diners</span></div></div>
+<a class="btn fill" href="#follow">Watch Video</a></div>
+</div></section>
+
+<section class="alt" id="delivery"><div class="wrap split">
+<div class="rv"><h2>Delivery and Payment</h2>
+<p>Enjoy hassle‑free payment with plenty of options. Get live tracking and watch your food travel on a live map. Plus, enjoy a 5% discount on every order when you pay online.</p>
+<div class="track"><i></i><span>🧾</span><span>👨‍🍳</span><span>🛵</span><span>🏠</span></div>
+<div class="pay"><span>VISA</span><span>Mastercard</span><span>PayPal</span><span>AmEx</span><span>UPI</span></div>
+<br><a class="btn fill" href="#top">Order Now</a></div>
+<div class="rv rev"><div class="plate" style="animation:none;font-size:120px;background:radial-gradient(circle,var(--gold2),#ff7a2f)">🛵</div></div>
+</div></section>
+
+<section><div class="wrap"><div class="gift rv">
+<h2>Thank you for being a valuable customer to us.</h2><p>We have a surprise gift for you.</p>
+<button class="btn" id="redeem">🎁 Redeem Gift</button></div></div></section>
+
+<dialog id="dlg"><div class="v"><h3>Gift Voucher</h3><div class="coupon"><b>50% OFF</b><span>on your next order</span><br><code>MUNCH50</code></div>
+<button class="btn fill" id="copy">Copy code</button><button class="btn out" id="close">Close</button></div></dialog>
+
+<section class="alt" id="follow"><div class="wrap">
+<div class="sec-h rv"><h2>Follow Us</h2></div>
+<div class="soc rv"><a href="#top">X</a><a href="#top">IG</a><a href="#top">FB</a><a href="#top">YT</a></div>
+</div></section>
+
+<footer><div class="wrap"><div class="logo">Food<b>Munch</b></div><a href="#top">orderfood@foodmunch.com</a><p>123 Ayur Vigyan Nagar, New Delhi, India.</p></div></footer>
+
+<script>
+var items=[["🍗","Non‑Veg Starters","s"],["🥦","Veg Starters","s"],["🍲","Soups","l"],["🦐","Fish & Sea food","m"],["🍛","Main Course","m"],["🍜","Noodles","m"],["🥗","Salads","l"],["🍰","Desserts","d"]];
+var g=document.getElementById("menuGrid");
+g.innerHTML=items.map(function(x){return '<div class="card item rv" data-c="'+x[2]+'"><span class="em">'+x[0]+'</span><h3>'+x[1]+'</h3><small>Freshly prepared</small><br><a href="#menu">View All →</a></div>'}).join("");
+document.getElementById("mq").innerHTML=Array(8).join("🍕 Fresh Daily &nbsp;•&nbsp; 🥑 Organic &nbsp;•&nbsp; 🛵 Fast Delivery &nbsp;•&nbsp; 🎟️ 50% Off &nbsp;•&nbsp; ");
+document.getElementById("tabs").onclick=function(e){var f=e.target.dataset.f;if(!f)return;
+this.querySelectorAll("button").forEach(function(b){b.classList.toggle("on",b===e.target)});
+g.querySelectorAll(".item").forEach(function(i){i.classList.toggle("hide",f!="all"&&i.dataset.c!=f)})};
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("show");io.unobserve(e.target);
+e.target.querySelectorAll&&e.target.querySelectorAll("[data-n]").forEach(count)}})},{threshold:.15});
+document.querySelectorAll(".rv").forEach(function(el){io.observe(el)});
+function count(el){var n=+el.dataset.n,t=0,s=setInterval(function(){t+=Math.ceil(n/40);if(t>=n){t=n;clearInterval(s)}el.textContent=t},30)}
+var secs=[].slice.call(document.querySelectorAll("section[id]")),ls=[].slice.call(document.querySelectorAll(".links a"));
+addEventListener("scroll",function(){var y=scrollY+120,cur="";secs.forEach(function(s){if(s.offsetTop<=y)cur="#"+s.id});
+ls.forEach(function(a){a.classList.toggle("on",a.getAttribute("href")==cur)})});
+var L=document.getElementById("links");document.getElementById("burger").onclick=function(){L.classList.toggle("open")};
+L.onclick=function(e){if(e.target.tagName=="A")L.classList.remove("open")};
+document.getElementById("theme").onclick=function(){var r=document.documentElement,d=getComputedStyle(r).colorScheme=="dark";r.dataset.theme=d?"light":"dark"};
+var dlg=document.getElementById("dlg");document.getElementById("redeem").onclick=function(){dlg.showModal()};
+document.getElementById("close").onclick=function(){dlg.close()};
+document.getElementById("copy").onclick=function(){var b=this;try{navigator.clipboard.writeText("MUNCH50")}catch(e){}b.textContent="Copied ✓"};
+</script>
+</body>
+</html>
